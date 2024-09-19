@@ -61,17 +61,17 @@ if st.session_state.page == "Login":
             if user:
                 st.session_state.logged_in = True
                 st.session_state.page = "Home"
-                st.experimental_rerun()
+                st.rerun()
             else:
                 st.error("Invalid username or password")
 
     if st.button("Forgot Password?", key="forgot_password_button"):
         st.session_state.page = "Reset Password"
-        st.experimental_rerun()
+        st.rerun()
 
     if st.button("Register", key="login_register_button"):
         st.session_state.page = "Register"
-        st.experimental_rerun()
+        st.rerun()
 
 elif st.session_state.page == "Register":
     st.title("Register")
@@ -90,7 +90,7 @@ elif st.session_state.page == "Register":
 
     if st.button("Back to Login", key="register_back_button"):
         st.session_state.page = "Login"
-        st.experimental_rerun()
+        st.rerun()
 
 elif st.session_state.page == "Reset Password":
     st.title("Reset Password")
@@ -108,7 +108,7 @@ elif st.session_state.page == "Reset Password":
 
     if st.button("Back to Login", key="reset_back_button"):
         st.session_state.page = "Login"
-        st.experimental_rerun()
+        st.rerun()
 
 elif st.session_state.page == "Home" and st.session_state.get('logged_in'):
     st.title("Welcome to Route Based Road")
@@ -136,7 +136,7 @@ elif st.session_state.page == "Home" and st.session_state.get('logged_in'):
             st.write("Comment submitted successfully!")
 
             st.session_state.page = "Feedback"
-            st.experimental_rerun()
+            st.rerun()
 
 elif st.session_state.page == "Feedback" and st.session_state.get('logged_in'):
     st.title("Feedback")
